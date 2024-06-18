@@ -36,6 +36,7 @@ We provide our interactive human evaluation code under the `evaluation` director
 
 ## Data Format
 The following is an example of our dataset format (before running `extract_leetcode.py`):
+
 (1) `<problem>`: problem statement of coding problem
 
 (2) `<bug_fixes>` contains the list of bug fixes that would modify the buggy code into correct code. We maintain the format, `Replace <buggy code> with <correct code> on line <line number>.`
