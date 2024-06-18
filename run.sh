@@ -1,0 +1,1 @@
+py tree_instruct.py --file 3BUG-multi-debug --bug_num 3 --log_folder three_bug_tree_instruct
