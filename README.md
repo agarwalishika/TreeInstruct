@@ -1,6 +1,6 @@
 # Instruct, Not Assist: LLM-based Multi-Turn Planning and Hierarchical Questioning for Socratic Code Debugging
 
-![Framework Diagram of TreeInstruct](https://github.com/agarwalishika/TreeInstruct/blob/main/framework.png)
+<p align="center"><img src="https://github.com/agarwalishika/TreeInstruct/blob/main/framework.png" alt="Framework Diagram of TreeInstruct" width="350"/></p>
 
 This repository contains the source code for [**Instruct, Not Assist: LLM-based Multi-Turn Planning and Hierarchical Questioning for Socratic Code Debugging**](https://arxiv.org/abs/2406.11709).
 
@@ -9,7 +9,7 @@ This repository contains the source code for [**Instruct, Not Assist: LLM-based 
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Data Format](#data-format)
-- [Using GPT-4 as the Instructor/Verifier](#using-gpt-4-as-the-instructor/verifier)
+- [Using GPT as Instructor and Verifier](#using-gpt-as-instructor-and-verifier)
 - [Citation](#citation)
 
 ## Installation
@@ -79,7 +79,7 @@ class Solution:
       return d
 ```
 
-## Using GPT-4 as the Instructor/Verifier
+## Using GPT as Instructor and Verifier
 By default, `tree_instruct.py` is the main script for having a `Llama-3-8b` Instructor/Verifier. In the case that you would like to run the code with a GPT-4 Instructor/Verifier, import the following instead of lines 12-13:
 ```
 from agents.verifier_gpt import Verifier
