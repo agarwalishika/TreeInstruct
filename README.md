@@ -2,7 +2,7 @@
 
 <p align="center"><img src="https://github.com/agarwalishika/TreeInstruct/blob/main/framework.png" alt="Framework Diagram of TreeInstruct" width="350"/></p>
 
-This repository contains the source code for [**Instruct, Not Assist: LLM-based Multi-Turn Planning and Hierarchical Questioning for Socratic Code Debugging**](https://arxiv.org/abs/2406.11709).
+This repository contains the source code for **Instruct, Not Assist: LLM-based Multi-Turn Planning and Hierarchical Questioning for Socratic Code Debugging**.
 
 ## Links
 
@@ -10,7 +10,6 @@ This repository contains the source code for [**Instruct, Not Assist: LLM-based 
 - [Quick Start](#quick-start)
 - [Data Format](#data-format)
 - [Using GPT as Instructor and Verifier](#using-gpt-as-instructor-and-verifier)
-- [Citation](#citation)
 
 ## Installation
 The code is written in Python 3.8.10. The Python dependencies are summarized in the file `requirements.txt`. You can install them like this:
@@ -88,17 +87,4 @@ from agents.instructor_gpt import Instructor
 ```
 and replace `llama_8b_model` with `gpt_4` on line 126 instead.
 
-You will just need to set the environment variables, `OPENAI_GPT4_KEY` and `GPT_MODEL_NAME`, based on your own API information:
-
-## Citation
-If you find this repository useful, please cite the following paper:
-```
-@misc{kargupta2024instruct,
-    title={Instruct, Not Assist: LLM-based Multi-Turn Planning and Hierarchical Questioning for Socratic Code Debugging},
-    author={Priyanka Kargupta and Ishika Agarwal and Dilek Hakkani-Tur and Jiawei Han},
-    year={2024},
-    eprint={2406.11709},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
-}
-```
+You will just need to set the environment variables, `OPENAI_GPT4_KEY` and `GPT_MODEL_NAME`, based on your own API information.
