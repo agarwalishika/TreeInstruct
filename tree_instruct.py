@@ -1,6 +1,6 @@
-from interaction_instructions import *
-from agent_personas import *
-from parse_utils import *
+from source.interaction_instructions import *
+from source.agent_personas import *
+from source.parse_utils import *
 import torch
 import pickle
 import os
@@ -8,10 +8,10 @@ from transformers import pipeline
 import re
 import argparse
 import glob
-from model_definitions import *
-from verifier import Verifier
-from instructor import Instructor
-from student import Student
+from source.model_definitions import *
+from agents.verifier import Verifier
+from agents.instructor import Instructor
+from agents.student import Student
 
 def fix_misunderstanding(student: Student, instructor: Instructor, verifier: Verifier, state_representation, target_rep):
     global num_questions
