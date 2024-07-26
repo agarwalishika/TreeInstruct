@@ -7,8 +7,8 @@ from tqdm import tqdm
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    bug_dir = 'BUG-leetcode-master/data_pkls/'
-    parser.add_argument('--file', type=str, default='three_bug_llama_no_state')
+    bug_dir = './1BUG-leetcode-master/data_pkls/'
+    parser.add_argument('--file', type=str, default='finished_evals/one_bug_gpt4_TI')
     parser.add_argument('--num_bug', type=int, default=3)
     args = parser.parse_args()
     to_eval = args.file
@@ -24,11 +24,10 @@ if __name__ == "__main__":
     for filename in sorted(os.listdir(bug_dir)):
         
         pkl_f = os.path.join(bug_dir, filename)
-        print(pkl_f)
         
         problem = filename.split('.')[0] + ".py"
         
-        if problem in existing or "55-jump" in problem:
+        if problem in existing:
             print(f"{problem} already exists! Moving forward...")
             continue
 
@@ -36,7 +35,6 @@ if __name__ == "__main__":
 
         with open(f"{to_eval}/{problem}.pkl/convo.txt", "r", encoding='utf8') as convo_f:
             convo = convo_f.read().strip().splitlines()
-            #assert (len(convo) % 3) == 0
 
         num_turns = "\n".join(convo).count("Instructor: ") #len(convo) // 2
 
@@ -58,39 +56,25 @@ if __name__ == "__main__":
             print(problem)
             fixes = ""
 
+
         
         print(f"Here is the problem statement:\n\n{prob_statement}\n")
         print(f"Here is the buggy code:\n\n{buggy_code}\n")
         print(f"Here is the bug description:\n\n{fix_desc}\n")
         print(f"Here are the bug fixes:\n\n{gt_fixes}\n")
-        print(f"Here are the PREDICTED bug fixes:\n\n{to_eval}/{problem}.pkl/bug_fixes.txt\n")
-
-        with open(f"{to_eval}/{problem}.pkl/log.txt", "r") as bf_f:
-                try:
-                    ishika = "\n".join(bf_f.read().strip().splitlines())
-                    if ishika.index("ADDING TEACHING") >= 0:
-                        print(f'TEACHING\nTEACHING\nTEACHING\nTEACHING\nTEACHING\nTEACHING\nTEACHING\nTEACHING\nTEACHING\nTEACHING\nTEACHING\nTEACHING\n{to_eval}/{problem}.pkl/convo.txt')
-                except:
-                    hi = 9
-                   #(f'check\ncheck\ncheck\ncheck\ncheck\ncheck\ncheck\ncheck\ncheck\ncheck\ncheck\ncheck\n{to_eval}/{problem}.pkl/log.txt')
+        print(f"Here are the PREDICTED bug fixes:\n\n{fixes}\n")
 
         c_success = input(f"CONCEPTUAL success rate: ")
         s_success = input(f"SYNTACTICAL success rate: ")
 
         syn_scores = []
         con_scores = []
-        prev_qtype = "0"
-        for i in range(0, min(len(convo), 60), 3):
+        for i in range(0, len(convo), 6):
             formatted_convo = "\n".join(convo[i:i+2])
             convo_history += "\n".join(convo[i:i+2]) + "\n"
-            print(f"TURN {(i//3)+1}/{num_turns}:\n\n{formatted_convo}\n")
+            print(f"TURN {(i//6)+1}/{num_turns}:\n\n{formatted_convo}\n")
             qtype = input("The question asked by the instructor was related to a syntactical bug (0) or conceptual bug (1): ")
-            if "." in qtype:
-                if prev_qtype == 0:
-                    syn_scores.append(score)
-                else:
-                    con_scores.append(score)
-                continue
+
             score = []
             prev_qtype = qtype
             qtype = int(qtype)
