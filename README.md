@@ -18,7 +18,7 @@ pip install -r requirements.txt
 ```
 
 ## Quick Start
-In order to have the Student proxy (`Mistral-7B-Instruct-0.2`) interact with TreeInstruct, you can first download the [**MULTI_DEBUG dataset**](https://drive.google.com/file/d/1qQNX2ImhtCpq9M7I4Ieb2DP3JBFHCBvG/view). Once you unzip the downloaded file (i.e., `tree_instruct_multi_debug_dataset.zip`), you will find three subdirectories, each for one, two, and three conceptual and syntactical bugs being injected within the same programming problems. You should run `extract_leetcode.py` in order to pre-process the dataset into the proper format.
+In order to have the Student proxy (`Mistral-7B-Instruct-0.2`) interact with TreeInstruct, you can first download the [**MULTI_DEBUG dataset**](https://drive.google.com/file/d/1ZFc7XfPoOShD3KZef3Z1DVHJU1fj_1LN/view?usp=sharing). Once you unzip the downloaded file (i.e., `tree_instruct_multi_debug_dataset.zip`), you will find three subdirectories, each for one, two, and three conceptual and syntactical bugs being injected within the same programming problems. You should run `extract_leetcode.py` in order to pre-process the dataset into the proper format.
 
 Put the three dataset folders under the main directory `./`, and run the pre-processing code. Then you need to run the following script.
 ```
